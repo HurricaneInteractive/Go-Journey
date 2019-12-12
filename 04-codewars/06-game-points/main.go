@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 )
 
@@ -10,12 +9,10 @@ import (
 func Points(games []string) (r int) {
 	for _, p := range games {
 		s := strings.Split(p, ":")
-		x, _ := strconv.Atoi(s[0])
-		y, _ := strconv.Atoi(s[1])
+		x, y := s[0], s[1]
 		if x > y {
 			r += 3
-		}
-		if x == y {
+		} else if x == y {
 			r++
 		}
 	}
@@ -25,7 +22,7 @@ func Points(games []string) (r int) {
 
 func main() {
 	// 30, 10, 0
-	examples := [...][]string{
+	examples := [][]string{
 		{"1:0", "2:0", "3:0", "4:0", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"},
 		{"1:1", "2:2", "3:3", "4:4", "2:2", "3:3", "4:4", "3:3", "4:4", "4:4"},
 		{"0:1", "0:2", "0:3", "0:4", "1:2", "1:3", "1:4", "2:3", "2:4", "3:4"},
@@ -35,3 +32,13 @@ func main() {
 		fmt.Printf("%d\n", Points(e))
 	}
 }
+
+/*
+// -- Way to do it with only "fmt"
+
+var x, y int
+
+// in loop
+fmt.Sscanf(e, "%d:%d", &x, &y)
+
+*/
