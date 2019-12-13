@@ -4,13 +4,13 @@ import "fmt"
 
 // TwoSum method
 func TwoSum(numbers []int, target int) [2]int {
-	if len(numbers) == 2 {
+	len := len(numbers)
+
+	if len == 2 {
 		return [2]int{0, 1}
 	}
 
-	len := len(numbers)
-
-	for i := 0; i < len; i++ {
+	for i := 0; i < len-1; i++ {
 		for x := 1; x < len; x++ {
 			if numbers[i]+numbers[x] == target {
 				return [2]int{i, x}
