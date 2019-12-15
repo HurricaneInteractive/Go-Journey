@@ -37,3 +37,14 @@ func main() {
 		fmt.Printf("Expecting: %d. Got -> %d\n", sol[i], FindOdd(v))
 	}
 }
+
+/**
+
+func FindOdd(seq []int) (res int) {
+    for _, n := range seq {
+        res ^= n
+    }
+    return
+}
+
+*/
