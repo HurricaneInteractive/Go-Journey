@@ -50,3 +50,31 @@ func main() {
 		fmt.Printf("Expecting: %s. Got -> %s\n", ans[i], Tickets(e))
 	}
 }
+
+/*
+
+Another solution. Negative check instead of specific checks
+
+func Tickets(peopleInLine []int) string {
+  t, f := 0, 0
+  for _, bill := range peopleInLine {
+    switch bill {
+    case 25:
+      t++
+    case 50:
+      f++
+      t--
+    case 100:
+      if f > 0 {
+        f--
+        t--
+      } else {
+        t -= 3
+      }
+    }
+    if t < 0 || f < 0 { return "NO" }
+  }
+  return "YES"
+}
+
+*/
